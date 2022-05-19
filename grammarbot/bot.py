@@ -37,6 +37,13 @@ async def on_message(event: hikari.GuildMessageCreateEvent) -> None:
 
     embed = hikari.Embed(description=f"Found {len(errors)} possible error(s).")
     for error in errors[0:25]:
-        embed.add_field(name=error.ruleId, value=error.message)
+        embed.add_field(
+            name=error.ruleId,
+            value=error.message
+            + '\n"'
+            + error.context
+            + '"\n->'
+            + ", ".join(error.replacements[0:5]),
+        )
 
     await event.message.respond(embed=embed, reply=True)
