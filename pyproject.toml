@@ -12,7 +12,7 @@ hikari-crescent = "^0.3.0"
 language-tool-python = "^2.7.1"
 
 [tool.poetry.dev-dependencies]
-mypy = "^0.961"
+mypy = "^0.971"
 nox = "^2022.1.7"
 isort = "^5.10.1"
 flake8 = "^5.0.4"
