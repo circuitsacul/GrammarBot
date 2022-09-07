@@ -11,4 +11,4 @@ class GrammarBot(crescent.Bot):
         super().__init__(CONFIG.discord_token)
 
         self.tool = language_tool_python.LanguageTool("en-US")
-        self.plugins.load("plugin")
+        self.plugins.load("grammarbot.plugin")
