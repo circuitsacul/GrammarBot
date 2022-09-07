@@ -17,7 +17,7 @@ class GrammarBot(crescent.Bot):
         self.tool = language_tool_python.LanguageTool("en-US")
 
 
-plugin = crescent.Plugin("main-plugin")
+plugin = crescent.Plugin()
 
 
 @plugin.include
