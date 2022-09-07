@@ -16,7 +16,7 @@ plugin = crescent.Plugin()
 @plugin.include
 @crescent.event
 async def on_message(event: hikari.GuildMessageCreateEvent) -> None:
-    bot = cast(GrammarBot, event.app)
+    bot = cast("GrammarBot", event.app)
 
     if event.author.is_bot:
         return
