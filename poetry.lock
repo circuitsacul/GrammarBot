@@ -195,6 +195,14 @@ pycodestyle = ">=2.9.0,<2.10.0"
 pyflakes = ">=2.5.0,<2.6.0"
 
 [[package]]
+name = "forbiddenfruit"
+version = "0.1.4"
+description = "Patch python built-in objects"
+category = "main"
+optional = false
+python-versions = "*"
+
+[[package]]
 name = "frozenlist"
 version = "1.3.1"
 description = "A list-like structure which implements collections.abc.MutableSequence"
@@ -222,7 +230,7 @@ speedups = ["Brotli (>=1.0,<2.0)", "aiodns (>=3.0,<4.0)", "cchardet (>=2.1,<3.0)
 
 [[package]]
 name = "hikari-crescent"
-version = "0.3.0"
+version = "0.3.2"
 description = "🌕 A command handler for Hikari that keeps your project neat and tidy."
 category = "main"
 optional = false
@@ -232,7 +240,8 @@ python-versions = ">=3.8,<3.11"
 attrs = ">=22.0.0"
 croniter = ">=1.3.5,<2.0.0"
 hikari = ">=2.0.0.dev110"
-pycooldown = ">=0.1.0-beta.6,<0.2.0"
+pycooldown = ">=0.1.0-beta.8"
+sigparse = ">=1.3.0,<2.0.0"
 types-croniter = ">=1.0.10,<2.0.0"
 
 [[package]]
@@ -491,6 +500,17 @@ socks = ["PySocks (>=1.5.6,!=1.5.7)"]
 use_chardet_on_py3 = ["chardet (>=3.0.2,<6)"]
 
 [[package]]
+name = "sigparse"
+version = "1.3.0"
+description = "Backports python3.10 typing features into python3.8 and python3.9."
+category = "main"
+optional = false
+python-versions = ">=3.8"
+
+[package.dependencies]
+forbiddenfruit = ">=0.1.4,<0.2.0"
+
+[[package]]
 name = "six"
 version = "1.16.0"
 description = "Python 2 and 3 compatibility utilities"
@@ -584,7 +604,7 @@ multidict = ">=4.0"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.8,<3.11"
-content-hash = "8409e0e222d57d64438a3151bf6297fd8f6258c3454fe5b9bb774812f73b3911"
+content-hash = "da8acbacc5b01eec43898871c4d50a67842c4fb4d89e99b3489b6914933e3c50"
 
 [metadata.files]
 aiohttp = [
@@ -790,6 +810,9 @@ flake8 = [
     {file = "flake8-5.0.4-py2.py3-none-any.whl", hash = "sha256:7a1cf6b73744f5806ab95e526f6f0d8c01c66d7bbe349562d22dfca20610b248"},
     {file = "flake8-5.0.4.tar.gz", hash = "sha256:6fbe320aad8d6b95cec8b8e47bc933004678dc63095be98528b7bdd2a9f510db"},
 ]
+forbiddenfruit = [
+    {file = "forbiddenfruit-0.1.4.tar.gz", hash = "sha256:e3f7e66561a29ae129aac139a85d610dbf3dd896128187ed5454b6421f624253"},
+]
 frozenlist = [
     {file = "frozenlist-1.3.1-cp310-cp310-macosx_10_9_universal2.whl", hash = "sha256:5f271c93f001748fc26ddea409241312a75e13466b06c94798d1a341cf0e6989"},
     {file = "frozenlist-1.3.1-cp310-cp310-macosx_10_9_x86_64.whl", hash = "sha256:9c6ef8014b842f01f5d2b55315f1af5cbfde284eb184075c189fd657c2fd8204"},
@@ -856,8 +879,8 @@ hikari = [
     {file = "hikari-2.0.0.dev110.tar.gz", hash = "sha256:0a455156a62228a21b7135c0ad081892f05e3d8a84678997f683eee787b4c991"},
 ]
 hikari-crescent = [
-    {file = "hikari-crescent-0.3.0.tar.gz", hash = "sha256:e977f9d1b3d62ecd4e48a96bfc5fba56c940454b74039ad72692b2f89209abb3"},
-    {file = "hikari_crescent-0.3.0-py3-none-any.whl", hash = "sha256:44eac097a4e2d86c20ac4ec77f75c017326be3bd66739a6f6fc6ca14d370e7d6"},
+    {file = "hikari-crescent-0.3.2.tar.gz", hash = "sha256:3937dbb2a8adede849f054e717dc0f5ade5c65565d52afa9daa373fefb7323ef"},
+    {file = "hikari_crescent-0.3.2-py3-none-any.whl", hash = "sha256:67b9adff60a2ca6ae44e3040f385bf113ea812352112f0ed7fc1e7de3c76277e"},
 ]
 idna = [
     {file = "idna-3.3-py3-none-any.whl", hash = "sha256:84d9dd047ffa80596e0f246e2eab0b391788b0503584e8945f2368256d2735ff"},
@@ -1024,6 +1047,10 @@ python-dateutil = [
 requests = [
     {file = "requests-2.28.1-py3-none-any.whl", hash = "sha256:8fefa2a1a1365bf5520aac41836fbee479da67864514bdb821f31ce07ce65349"},
     {file = "requests-2.28.1.tar.gz", hash = "sha256:7c5599b102feddaa661c826c56ab4fee28bfd17f5abca1ebbe3e7f19d7c97983"},
+]
+sigparse = [
+    {file = "sigparse-1.3.0-py3-none-any.whl", hash = "sha256:5afd98277e843ff6a0674a3a98f8cb8ad8714e89ee2556bf350c6a34aaf59870"},
+    {file = "sigparse-1.3.0.tar.gz", hash = "sha256:bf5c518037109505abe8069fe39b9c5131c9c9a1865c354e9ae537696ac2e5d0"},
 ]
 six = [
     {file = "six-1.16.0-py2.py3-none-any.whl", hash = "sha256:8abb2f1d86890a2dfb989f9a77cfcfd3e47c2a354b01111771326f8aa26e0254"},
