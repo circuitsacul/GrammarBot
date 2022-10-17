@@ -60,7 +60,7 @@ python-versions = ">=3.5"
 dev = ["cloudpickle", "coverage[toml] (>=5.0.2)", "furo", "hypothesis", "mypy (>=0.900,!=0.940)", "pre-commit", "pympler", "pytest (>=4.3.0)", "pytest-mypy-plugins", "sphinx", "sphinx-notfound-page", "zope.interface"]
 docs = ["furo", "sphinx", "sphinx-notfound-page", "zope.interface"]
 tests = ["cloudpickle", "coverage[toml] (>=5.0.2)", "hypothesis", "mypy (>=0.900,!=0.940)", "pympler", "pytest (>=4.3.0)", "pytest-mypy-plugins", "zope.interface"]
-tests_no_zope = ["cloudpickle", "coverage[toml] (>=5.0.2)", "hypothesis", "mypy (>=0.900,!=0.940)", "pympler", "pytest (>=4.3.0)", "pytest-mypy-plugins"]
+tests-no-zope = ["cloudpickle", "coverage[toml] (>=5.0.2)", "hypothesis", "mypy (>=0.900,!=0.940)", "pympler", "pytest (>=4.3.0)", "pytest-mypy-plugins"]
 
 [[package]]
 name = "black"
@@ -101,7 +101,7 @@ optional = false
 python-versions = ">=3.6.0"
 
 [package.extras]
-unicode_backport = ["unicodedata2"]
+unicode-backport = ["unicodedata2"]
 
 [[package]]
 name = "click"
@@ -195,6 +195,14 @@ pycodestyle = ">=2.9.0,<2.10.0"
 pyflakes = ">=2.5.0,<2.6.0"
 
 [[package]]
+name = "forbiddenfruit"
+version = "0.1.4"
+description = "Patch python built-in objects"
+category = "main"
+optional = false
+python-versions = "*"
+
+[[package]]
 name = "frozenlist"
 version = "1.3.1"
 description = "A list-like structure which implements collections.abc.MutableSequence"
@@ -222,7 +230,7 @@ speedups = ["Brotli (>=1.0,<2.0)", "aiodns (>=3.0,<4.0)", "cchardet (>=2.1,<3.0)
 
 [[package]]
 name = "hikari-crescent"
-version = "0.3.0"
+version = "0.3.6"
 description = "🌕 A command handler for Hikari that keeps your project neat and tidy."
 category = "main"
 optional = false
@@ -232,8 +240,9 @@ python-versions = ">=3.8,<3.11"
 attrs = ">=22.0.0"
 croniter = ">=1.3.5,<2.0.0"
 hikari = ">=2.0.0.dev110"
-pycooldown = ">=0.1.0-beta.6,<0.2.0"
-types-croniter = ">=1.0.10,<2.0.0"
+pycooldown = ">=0.1.0-beta.8"
+sigparse = ">=1.3.0,<2.0.0"
+types-croniter = "1.0.11"
 
 [[package]]
 name = "idna"
@@ -261,9 +270,9 @@ python-versions = ">=3.6.1,<4.0"
 
 [package.extras]
 colors = ["colorama (>=0.4.3,<0.5.0)"]
-pipfile_deprecated_finder = ["pipreqs", "requirementslib"]
+pipfile-deprecated-finder = ["pipreqs", "requirementslib"]
 plugins = ["setuptools"]
-requirements_deprecated_finder = ["pip-api", "pipreqs"]
+requirements-deprecated-finder = ["pip-api", "pipreqs"]
 
 [[package]]
 name = "language-tool-python"
@@ -335,7 +344,7 @@ py = ">=1.4,<2.0.0"
 virtualenv = ">=14"
 
 [package.extras]
-tox_to_nox = ["jinja2", "tox"]
+tox-to-nox = ["jinja2", "tox"]
 
 [[package]]
 name = "packaging"
@@ -488,7 +497,18 @@ urllib3 = ">=1.21.1,<1.27"
 
 [package.extras]
 socks = ["PySocks (>=1.5.6,!=1.5.7)"]
-use_chardet_on_py3 = ["chardet (>=3.0.2,<6)"]
+use-chardet-on-py3 = ["chardet (>=3.0.2,<6)"]
+
+[[package]]
+name = "sigparse"
+version = "1.4.0"
+description = "Backports python3.10 typing features into python 3.7 and newer."
+category = "main"
+optional = false
+python-versions = ">=3.7"
+
+[package.dependencies]
+forbiddenfruit = {version = ">=0.1.4,<0.2.0", markers = "python_version < \"3.10\""}
 
 [[package]]
 name = "six"
@@ -525,7 +545,7 @@ telegram = ["requests"]
 
 [[package]]
 name = "types-croniter"
-version = "1.3.2"
+version = "1.0.11"
 description = "Typing stubs for croniter"
 category = "main"
 optional = false
@@ -584,7 +604,7 @@ multidict = ">=4.0"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.8,<3.11"
-content-hash = "8409e0e222d57d64438a3151bf6297fd8f6258c3454fe5b9bb774812f73b3911"
+content-hash = "6e24c655f6bf80450eb358b50a4730ddbfd7b70c5c1902c670d142f08660619c"
 
 [metadata.files]
 aiohttp = [
@@ -790,6 +810,9 @@ flake8 = [
     {file = "flake8-5.0.4-py2.py3-none-any.whl", hash = "sha256:7a1cf6b73744f5806ab95e526f6f0d8c01c66d7bbe349562d22dfca20610b248"},
     {file = "flake8-5.0.4.tar.gz", hash = "sha256:6fbe320aad8d6b95cec8b8e47bc933004678dc63095be98528b7bdd2a9f510db"},
 ]
+forbiddenfruit = [
+    {file = "forbiddenfruit-0.1.4.tar.gz", hash = "sha256:e3f7e66561a29ae129aac139a85d610dbf3dd896128187ed5454b6421f624253"},
+]
 frozenlist = [
     {file = "frozenlist-1.3.1-cp310-cp310-macosx_10_9_universal2.whl", hash = "sha256:5f271c93f001748fc26ddea409241312a75e13466b06c94798d1a341cf0e6989"},
     {file = "frozenlist-1.3.1-cp310-cp310-macosx_10_9_x86_64.whl", hash = "sha256:9c6ef8014b842f01f5d2b55315f1af5cbfde284eb184075c189fd657c2fd8204"},
@@ -856,8 +879,8 @@ hikari = [
     {file = "hikari-2.0.0.dev110.tar.gz", hash = "sha256:0a455156a62228a21b7135c0ad081892f05e3d8a84678997f683eee787b4c991"},
 ]
 hikari-crescent = [
-    {file = "hikari-crescent-0.3.0.tar.gz", hash = "sha256:e977f9d1b3d62ecd4e48a96bfc5fba56c940454b74039ad72692b2f89209abb3"},
-    {file = "hikari_crescent-0.3.0-py3-none-any.whl", hash = "sha256:44eac097a4e2d86c20ac4ec77f75c017326be3bd66739a6f6fc6ca14d370e7d6"},
+    {file = "hikari_crescent-0.3.6-py3-none-any.whl", hash = "sha256:9a97a5f7c7b747079d2732c5b4f8e82c6295aa08aa6311ca802ae57daaa988d0"},
+    {file = "hikari_crescent-0.3.6.tar.gz", hash = "sha256:eadf2443812fc115ad8e5846367c89aafe2192081f562fa6db2709c9b6079628"},
 ]
 idna = [
     {file = "idna-3.3-py3-none-any.whl", hash = "sha256:84d9dd047ffa80596e0f246e2eab0b391788b0503584e8945f2368256d2735ff"},
@@ -1025,6 +1048,10 @@ requests = [
     {file = "requests-2.28.1-py3-none-any.whl", hash = "sha256:8fefa2a1a1365bf5520aac41836fbee479da67864514bdb821f31ce07ce65349"},
     {file = "requests-2.28.1.tar.gz", hash = "sha256:7c5599b102feddaa661c826c56ab4fee28bfd17f5abca1ebbe3e7f19d7c97983"},
 ]
+sigparse = [
+    {file = "sigparse-1.4.0-py3-none-any.whl", hash = "sha256:68c1976db6832f70f6b24e18bc2da6c7ae44e69c34981b82e1393b020765b98b"},
+    {file = "sigparse-1.4.0.tar.gz", hash = "sha256:688644288056e94edb7aadfed3fee10ec2088b88c6203fc10457d91b030b01c8"},
+]
 six = [
     {file = "six-1.16.0-py2.py3-none-any.whl", hash = "sha256:8abb2f1d86890a2dfb989f9a77cfcfd3e47c2a354b01111771326f8aa26e0254"},
     {file = "six-1.16.0.tar.gz", hash = "sha256:1e61c37477a1626458e36f7b1d82aa5c9b094fa4802892072e49de9c60c4c926"},
@@ -1038,8 +1065,8 @@ tqdm = [
     {file = "tqdm-4.64.1.tar.gz", hash = "sha256:5f4f682a004951c1b450bc753c710e9280c5746ce6ffedee253ddbcbf54cf1e4"},
 ]
 types-croniter = [
-    {file = "types-croniter-1.3.2.tar.gz", hash = "sha256:e96e9c855247f294fb88cc1363a5eb93fd1df5943fe85dda29179285e00deabc"},
-    {file = "types_croniter-1.3.2-py3-none-any.whl", hash = "sha256:f529295f94aff6da82222739bbcdeed7fe98de9fe38597f04071d2a1b980ee06"},
+    {file = "types-croniter-1.0.11.tar.gz", hash = "sha256:ace63746ab0284eaac3b4fa12c7574acaf5d5fc3abce9c4c6281d1be5cfbd18e"},
+    {file = "types_croniter-1.0.11-py3-none-any.whl", hash = "sha256:edaaf21dbd88628665c329bd4ee1d6c687aba14773ba6db6deb0e3f4dca15031"},
 ]
 typing-extensions = [
     {file = "typing_extensions-4.3.0-py3-none-any.whl", hash = "sha256:25642c956049920a5aa49edcdd6ab1e06d7e5d467fc00e0506c44ac86fbfca02"},
